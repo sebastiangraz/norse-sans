@@ -40,14 +40,20 @@ for (var i = 0; i < list.length; i++) {
   list[i].addEventListener("mouseenter", function( event ) {
     var weightItem = event.target.dataset.weight;
 
-    charset.className = "charset"
+    charset.className = "charset pa1"
     charset.classList.toggle(weightItem);
   }, false);
 }
-
+function randomDia() {
+  var text = "";
+  var alphabetdia = "ÓǑÔÖÒŐŌØÕ";
+  for( var i = 0; i < 1; i++ )
+      text += alphabetdia.charAt(Math.floor(Math.random() * alphabetdia.length));
+  return text;
+}
 function randomString() {
     var text = "";
-    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789∑‰@&†≈£€→↖↔∫";
     for( var i = 0; i < 1; i++ )
         text += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
     if (text.match(/[a-z]/i)) {
@@ -61,5 +67,10 @@ function randomString() {
 document.querySelectorAll('.random').forEach( function(e){
   setInterval(function(){
       e.innerHTML = randomString();
+  },800);
+});
+document.querySelectorAll('.randomdia').forEach( function(e){
+  setInterval(function(){
+      e.innerHTML = randomDia();
   },800);
 });
