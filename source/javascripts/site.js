@@ -12,7 +12,6 @@ window.onresize = function () {
     el.setScaledFont(1.557);
 }
 
-
 var pos = 0;
 var ticking = false;
 
@@ -36,6 +35,7 @@ window.addEventListener('scroll', function(e) {
 
 var list = document.querySelector(".weight").children;
 var charset = document.querySelector('.charset');
+
 for (var i = 0; i < list.length; i++) {
   list[i].addEventListener("mouseenter", function( event ) {
     var weightItem = event.target.dataset.weight;
@@ -44,13 +44,15 @@ for (var i = 0; i < list.length; i++) {
     charset.classList.toggle(weightItem);
   }, false);
 }
+
 function randomDia() {
   var text = "";
-  var alphabetdia = "ÓǑÔÖÒŐŌØÕ";
+  var alphabetdia = "ÓǑÔÖÒŐŌÕ";
   for( var i = 0; i < 1; i++ )
       text += alphabetdia.charAt(Math.floor(Math.random() * alphabetdia.length));
   return text;
 }
+
 function randomString() {
     var text = "";
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789∑‰@&†≈£€→↖↔∫";
@@ -62,8 +64,8 @@ function randomString() {
     else {
       return text;
     }
-
 }
+
 document.querySelectorAll('.random').forEach( function(e){
   setInterval(function(){
       e.innerHTML = randomString();
@@ -74,3 +76,38 @@ document.querySelectorAll('.randomdia').forEach( function(e){
       e.innerHTML = randomDia();
   },800);
 });
+
+// console.log(document.querySelector('#typetester').value)
+var playground = document.querySelectorAll('.typetester-playground')
+var typetester = document.querySelector('.typetester');
+
+typetester.addEventListener("input", function(e){
+  var value = this.value
+  playground.forEach(function(e){
+    e.innerHTML = value
+  });
+});
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+var cycle = document.querySelectorAll('.expand');
+cycle.forEach(function(e) {
+  e.parentElement.addEventListener("mouseenter", function( event ) {
+    var expandElem = this.querySelector('.expand-list')
+    var children = expandElem.children;
+    expandElem.classList.add('active')
+    for (var i = 0; i < children.length; i++) {
+      var tableChild = children[i];
+      console.log(tableChild)
+      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(-400, 400) + 'px, ' + getRandomInt(-400, 400) + 'px)'});
+    }
+  })
+  e.parentElement.addEventListener("mouseleave", function( event ) {
+    var expandElem = this.querySelector('.expand-list')
+    expandElem.classList.remove('active')
+  })
+})

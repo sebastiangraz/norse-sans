@@ -5,25 +5,25 @@ title: Norse Sans
 <div class="row">
   <div class="mt5 mt6-ns">
     <h1 class="left-0 top-0 ma0 mt5 mt6-ns w-100 tc lh-solid z--1 fixed" id="fill">
-      <span class="isometric db custom-text-indent tracked fw9 fw4-m transparent fw1-ns relative pink">N<span class="randomdia">O</span>RSE</span>
+      <span class="isometric db custom-text-indent tracked fw9 fw4-m fw1-ns relative">N<span class="randomdia">O</span>RSE</span>
     </h1>
   </div>
   <div class="mt6 mt7-ns  cf">
-    <div class="w-100 w-50-ns pa0 pa3-ns fl">
+    <div class="w-100 w-40-ns pa0 pa3-ns fl">
       <ul class="list pa0">
         <li class="mt3">Designed by <a href="http://graz.io">Sebastian Graz</a></li>
         <li class="mt3">Supports Latin Extended A</li>
         <li class="mt3">Released 11th October 2017</li>
       </ul>
     </div>
-    <div class="w-100 w-50-ns pa0 pa3-ns fl f4">
-      <p class="f3">Norse — A geometric sans-serif designed for the modern world.
-Sourcing inspiration from grotesque and geometric typefaces makes it a lovable combo.</p>
+    <div class="w-100 w-60-ns pa0 pa3-ns fl f4 measure">
+      <p class="f3 f2-l ma0"><span class="smcp tracked">NORSE</span> — A geometric sans-serif designed for the modern world.
+Sourcing inspiration from grotesque and geometric typefaces, making it a lovable combo.</p>
 
       <p >
         Norse really shines when small due to it's spacious layout of shapes making it ideal for body text. But offers enough quirkiness to be used as a headers and heroes.
       </p>
-      <p class="f5">
+      <p>
         Download a small specimen and try the typeface yourself for free. If like what you see, you can purchase all the glyphs.
       </p>
     </div>
@@ -81,57 +81,76 @@ Sourcing inspiration from grotesque and geometric typefaces makes it a lovable c
   </div>
 
 
+  <div class="mt4 mt6-ns cf">
+    <p>Type tester</p>
+    <div class="cf">
+      <textarea class="typetester w-100 pa4 f3 fw9 lh-copy bg-transparent white ba b--white" name="name" rows="3" cols="80">Arrowroot Barley Chervil Dumpling Endive Flaxseed Garbanzo Hijiki Ishtu Jicama Kale Lychee Marjoram Nectarine Oxtail Pizza Quinoa Roquefort Squash Tofu Uppuma Vanilla Wheat Xergis Yogurt Zweiback</textarea>
+      <div class="typetester-playground">
 
+      </div>
+      <div class="typetester-playground f1 fw1">
 
-  <div class="mt3 mt5-ns cf">
+      </div>
+    </div>
+  </div>
+
+  <div class="mt4 mt6-ns cf">
       <div class="cf">
         <nav class="flex justify-between weight">
-          <a class="dib f4 f3-ns tc pv3" data-weight="fw9">Bold</a>
-          <a class="dib f4 f3-ns tc pv3" data-weight="fw5">Medium</a>
-          <a class="dib f4 f3-ns tc pv3" data-weight="fw4">Regular</a>
-          <a class="dib f4 f3-ns tc pv3" data-weight="fw2">Light</a>
+          <a class="dib f4 f3-ns tc pv4 fw9" data-weight="fw9">Bold</a>
+          <a class="dib f4 f3-ns tc pv4 fw5" data-weight="fw5">Medium</a>
+          <a class="dib f4 f3-ns tc pv4 fw4" data-weight="fw4">Regular</a>
+          <a class="dib f4 f3-ns tc pv4 fw2" data-weight="fw2">Light</a>
         </nav>
       </div>
       <div class="charset medium pa1">
-        <% data.charset.characters.each do |f| %>
+        <% data.charset.characters.each do |this| %>
+          <div class="w-25 w-20-l fl">
+            <div class="aspect-ratio--1x1 aspect-ratio">
+              <div class="aspect-ratio--object ba b--white hover-bg-white hover-black flex justify-center items-center cycle">
+                 <ul class="f2 list ma0 pa0 expand relative">
+                 <li><%= this['char'] + this['char'].downcase %></li>
+                   <ul class="list ma0 pa0 expand-list">
+                   <% if this.key?('dia') %>
+                     <% this['dia'].each do | dia | %>
+                        <li class="absolute bg-white top-0 pa4 left-0"><%= dia + dia.mb_chars.downcase %></li>
+                     <% end %>
+                   <% end %>
+                  </ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <% data.charset.numerals.each do |this| %>
           <div class="w-25 w-20-l fl">
             <div class="aspect-ratio--1x1 aspect-ratio">
               <div class="aspect-ratio--object ba b--white hover-bg-white hover-black flex justify-center items-center">
                <span class="f2 f1-ns dib">
-                 <%= f + f.downcase %>
+                 <%= this %>
                </span>
               </div>
             </div>
           </div>
         <% end %>
-        <% data.charset.numerals.each do |f| %>
+        <% data.charset.punctuation.each do |this| %>
           <div class="w-25 w-20-l fl">
             <div class="aspect-ratio--1x1 aspect-ratio">
               <div class="aspect-ratio--object ba b--white hover-bg-white hover-black flex justify-center items-center">
                <span class="f2 f1-ns dib">
-                 <%= f %>
+                 <%= this %>
                </span>
               </div>
             </div>
           </div>
         <% end %>
-        <% data.charset.punctuation.each do |f| %>
+        <% data.charset.symbols.each do |this| %>
           <div class="w-25 w-20-l fl">
             <div class="aspect-ratio--1x1 aspect-ratio">
               <div class="aspect-ratio--object ba b--white hover-bg-white hover-black flex justify-center items-center">
                <span class="f2 f1-ns dib">
-                 <%= f %>
-               </span>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% data.charset.symbols.each do |f| %>
-          <div class="w-25 w-20-l fl">
-            <div class="aspect-ratio--1x1 aspect-ratio">
-              <div class="aspect-ratio--object ba b--white hover-bg-white hover-black flex justify-center items-center">
-               <span class="f2 f1-ns dib">
-                 <%= f %>
+                 <%= this %>
                </span>
               </div>
             </div>
