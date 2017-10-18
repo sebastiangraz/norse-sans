@@ -89,6 +89,7 @@ typetester.addEventListener("input", function(e){
 });
 
 function getRandomInt(min, max) {
+
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
@@ -96,18 +97,39 @@ function getRandomInt(min, max) {
 
 var cycle = document.querySelectorAll('.expand');
 cycle.forEach(function(e) {
+
+
   e.parentElement.addEventListener("mouseenter", function( event ) {
     var expandElem = this.querySelector('.expand-list')
     var children = expandElem.children;
     expandElem.classList.add('active')
     for (var i = 0; i < children.length; i++) {
+
+
       var tableChild = children[i];
-      console.log(tableChild)
-      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(-400, 400) + 'px, ' + getRandomInt(-400, 400) + 'px)'});
+      // console.log(tableChild)
+
+      var dimensions = {
+        w: tableChild.offsetWidth,
+        h: tableChild.offsetHeight
+      }
+      var position = {
+        x: getRandomInt(-300, 300),
+        y: getRandomInt(-300, 300)
+      }
+
+
+      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(-300, 300) + 'px, ' + getRandomInt(-300, 300) + 'px)'});
     }
   })
   e.parentElement.addEventListener("mouseleave", function( event ) {
     var expandElem = this.querySelector('.expand-list')
     expandElem.classList.remove('active')
+    var children = expandElem.children;
+    for (var i = 0; i < children.length; i++) {
+      var tableChild = children[i];
+      // console.log(tableChild)
+      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(0, 0) + 'px, ' + getRandomInt(0, 0) + 'px)'});
+    }
   })
 })
