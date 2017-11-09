@@ -8,6 +8,8 @@ end
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
+set :images_dir, 'images'
+
 # Per-page layout changes
 page '/*.xml', layout: false
 page '/*.json', layout: false

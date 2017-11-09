@@ -1,29 +1,23 @@
-var el = document.getElementById('fill');
-
-el.setScaledFont = function (f) {
-    var s = this.offsetWidth,
-        fs = s * f;
-    this.style.fontSize = fs + '%';
-    return this
-};
-
-el.setScaledFont(1.557);
-window.onresize = function () {
-    el.setScaledFont(1.557);
-}
-
-var pos = 0;
-var ticking = false;
+function setScaledFont(){
+    var el = document.getElementsByClassName("fill");
+    for(var i = 0; i < el.length; i++){
+      var s  = el[i].offsetWidth,
+          f  = 0.8,
+          fs = s * f;
+      el[i].style.fontSize = fs + '%'
+    }
+} setScaledFont()
 
 function hero(scroll_pos) {
-  scroll_pos = scroll_pos * 0.02
-  Object.assign(el.style,{filter:'blur(' + scroll_pos + 'px)', transform:'translateY(-' + scroll_pos * 4 + 'px)'});
-  // el.style.filter = "blur(" + scroll_pos + "px)";
-  // el.style.color = "hsl(" + scroll_pos + ", 0%, 100%);";
+  var el = document.getElementsByClassName("black-shiny");
+  for (var i = 0; i < el.length; i++) {
+    Object.assign(el[i].style,{background:'-webkit-linear-gradient(' + scroll_pos * .2 + 'deg, #000 30%, #444 60%)', webkitBackgroundClip: 'text'});
+  }
 }
 
-window.addEventListener('scroll', function(e) {
-  pos = window.scrollY;
+function parallax() {
+  var ticking = false,
+      pos = window.scrollY;
   if (!ticking) {
     window.requestAnimationFrame(function() {
       hero(pos);
@@ -31,19 +25,30 @@ window.addEventListener('scroll', function(e) {
     });
     ticking = true;
   }
+}
+
+
+window.onresize = function () {
+    setScaledFont()
+}
+
+window.addEventListener('scroll', function(e) {
+  parallax()
 });
 
-var list = document.querySelector(".weight").children;
-var charset = document.querySelector('.charset');
 
-for (var i = 0; i < list.length; i++) {
-  list[i].addEventListener("mouseenter", function( event ) {
-    var weightItem = event.target.dataset.weight;
 
-    charset.className = "charset pa1"
-    charset.classList.toggle(weightItem);
-  }, false);
-}
+// var list = document.querySelector(".weight").children;
+// var charset = document.querySelector('.charset');
+//
+// for (var i = 0; i < list.length; i++) {
+//   list[i].addEventListener("click", function( event ) {
+//     var weightItem = event.target.dataset.weight;
+//
+//     charset.className = "charset pa1"
+//     charset.classList.toggle(weightItem);
+//   }, false);
+// }
 
 function randomDia() {
   var text = "";
@@ -69,24 +74,33 @@ function randomString() {
 document.querySelectorAll('.random').forEach( function(e){
   setInterval(function(){
       e.innerHTML = randomString();
-  },800);
+  },810);
 });
 document.querySelectorAll('.randomdia').forEach( function(e){
   setInterval(function(){
       e.innerHTML = randomDia();
-  },800);
+  },790);
 });
 
 // console.log(document.querySelector('#typetester').value)
-var playground = document.querySelectorAll('.typetester-playground')
-var typetester = document.querySelector('.typetester');
+// var playground = document.querySelectorAll('.typetester-playground')
+// var typetester = document.querySelector('.typetester');
+//
+// typetester.addEventListener("input", function(e){
+//   var value = this.value
+//   playground.forEach(function(e){
+//     e.innerHTML = value
+//   });
+// });
 
-typetester.addEventListener("input", function(e){
-  var value = this.value
-  playground.forEach(function(e){
-    e.innerHTML = value
-  });
-});
+
+// var elem = document.querySelector('.charset');
+// var iso = new Isotope( elem, {
+//   // options
+//   itemSelector: '.glyph',
+//   percentPosition: true,
+//   layoutMode: 'masonry'
+// });
 
 function getRandomInt(min, max) {
 
@@ -94,42 +108,30 @@ function getRandomInt(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
 }
+function isTouchDevice() {
+  return 'ontouchstart' in document.documentElement;
+}
+
+function glyphHover () {
+  var expandElem = this.querySelector('.expand-list')
+  var children = expandElem.children;
+  expandElem.classList.add('active')
+  for(var i = 0, l = children.length; i < l; i++) {
+    children[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+    children[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+  }
+}
+function glyphUnHover () {
+  var expandElem = this.querySelector('.expand-list')
+  expandElem.classList.remove('active')
+}
 
 var cycle = document.querySelectorAll('.expand');
+
 cycle.forEach(function(e) {
-
-
-  e.parentElement.addEventListener("mouseenter", function( event ) {
-    var expandElem = this.querySelector('.expand-list')
-    var children = expandElem.children;
-    expandElem.classList.add('active')
-    for (var i = 0; i < children.length; i++) {
-
-
-      var tableChild = children[i];
-      // console.log(tableChild)
-
-      var dimensions = {
-        w: tableChild.offsetWidth,
-        h: tableChild.offsetHeight
-      }
-      var position = {
-        x: getRandomInt(-300, 300),
-        y: getRandomInt(-300, 300)
-      }
-
-
-      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(-300, 300) + 'px, ' + getRandomInt(-300, 300) + 'px)'});
-    }
-  })
-  e.parentElement.addEventListener("mouseleave", function( event ) {
-    var expandElem = this.querySelector('.expand-list')
-    expandElem.classList.remove('active')
-    var children = expandElem.children;
-    for (var i = 0; i < children.length; i++) {
-      var tableChild = children[i];
-      // console.log(tableChild)
-      Object.assign(tableChild.style,{transform:'translate(' + getRandomInt(0, 0) + 'px, ' + getRandomInt(0, 0) + 'px)'});
-    }
-  })
+  e.parentElement.addEventListener("mouseenter", glyphHover, false)
+  e.parentElement.addEventListener("mouseleave", glyphUnHover, false)
+  if (isTouchDevice()) {
+    e.parentElement.addEventListener("click", glyphHover, false)
+  }
 })

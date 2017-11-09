@@ -1,0 +1,34 @@
+<svg width="1818" height="1498" viewBox="0 0 1818 1498" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>norse-art</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-859 -2987)">
+<g id="norse-art">
+<g id="Rectangle">
+<use xlink:href="#path0_fill" transform="matrix(1 2.77556e-17 -2.77556e-17 1 1320 2987)" fill="#97A18E"/>
+</g>
+<g id="Rectangle">
+<use xlink:href="#path1_fill" transform="matrix(1 2.77556e-17 -2.77556e-17 1 1282 3503)" fill="#101017"/>
+</g>
+<g id="Rectangle">
+<use xlink:href="#path2_fill" transform="matrix(-1.11022e-16 1 -1 -1.11022e-16 1622 3722)" fill="#FCCC81"/>
+</g>
+<g id="Rectangle">
+<use xlink:href="#path3_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 1186 4048.33)" fill="#EE6D84"/>
+</g>
+<g id="Rectangle">
+<use xlink:href="#path4_fill" transform="matrix(6.245e-17 -1 1 6.245e-17 1220 4485)" fill="#D42B27"/>
+</g>
+<g id="Rectangle">
+<use xlink:href="#path5_fill" transform="matrix(0.707107 -0.707107 0.707107 0.707107 1461 4323.22)" fill="#F889B1"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 678.58C 0 303.81 303.81 0 678.58 0L 1357 0L 1357 678.42C 1357 1053.19 1053.19 1357 678.42 1357L 0 1357L 0 678.58Z"/>
+<path id="path1_fill" d="M 0 491C 0 219.828 219.828 0 491 0L 982 0L 982 491C 982 762.172 762.172 982 491 982L 0 982L 0 491Z"/>
+<path id="path2_fill" d="M 0 381.591C 0 170.844 170.844 0 381.591 0L 763 0L 763 381.409C 763 592.156 592.156 763 381.409 763L 0 763L 0 381.591Z"/>
+<path id="path3_fill" d="M 0 308.434C 0 138.091 138.091 0 308.434 0L 617.062 0L 617.062 313.868C 617.062 481.211 481.405 616.868 314.062 616.868L 0 616.868L 0 308.434Z"/>
+<path id="path4_fill" d="M 0 279.202C 0 125.003 125.003 0 279.202 0L 402 0L 402 122.798C 402 276.997 276.997 402 122.798 402L 0 402L 0 279.202Z"/>
+<path id="path5_fill" d="M 0 203C 0 90.8862 90.8862 0 203 0L 228 0L 228 25C 228 137.114 137.114 228 25 228L 0 228L 0 203Z"/>
+</defs>
+</svg>
