@@ -1,24 +1,12 @@
 @font-face {
     font-family: norse;
     src: url('/fonts/Norse-Bold.woff');
-    font-weight: 900;
+    font-weight: 600;
 }
 @font-face {
     font-family: norse;
-    src: url('/fonts/Norse-Medium.woff');
+    src: url('/fonts/Norse-DemiBold.woff');
     font-weight:500;
-}
-@font-face {
-    font-family: norse;
-    src: url('/fonts/Norse-MediumItalic.woff');
-    font-weight:500;
-    font-style: italic;
-}
-@font-face {
-    font-family: norse;
-    src: url('/fonts/Norse-BoldItalic.woff');
-    font-weight:900;
-    font-style: italic;
 }
 @font-face {
     font-family: norse;
@@ -28,8 +16,16 @@
 @font-face {
     font-family: norse;
     src: url('/fonts/Norse-Light.woff');
+    font-weight: 300;
+}
+@font-face {
+    font-family: norse;
+    src: url('/fonts/Norse-Thin.woff');
     font-weight:200;
 }
+
+@import "_layout/tooltip";
+
 .transparent {
   color:transparent;
 }
@@ -100,21 +96,24 @@
 
 body {
   font-family: norse;
-  background: #D7C0C4;
+  background: #111;
   // background: linear-gradient(#0d1b53,#1f1d91);
-  font-weight: 400;
-  color: #101017;
+  font-weight: 500;
+  color: #fff;
   line-height: 1.6;
-  // font-feature-settings:"smcp", "ss01";
+  font-feature-settings: "frac", "onum", "dlig", "zero";
   -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 500;
 }
 * { box-sizing: border-box;}
 
 a {
-  color: rgba(#000, 0.5);
+  color: rgba(#fff, 0.5);
   text-decoration: none;
   &:hover {
-    color: #000;
+    color: #fff;
   }
 }
 .row {

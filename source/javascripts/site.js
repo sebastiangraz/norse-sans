@@ -2,7 +2,7 @@ function setScaledFont(){
     var el = document.getElementsByClassName("fill");
     for(var i = 0; i < el.length; i++){
       var s  = el[i].offsetWidth,
-          f  = 0.8,
+          f  = 0.3,
           fs = s * f;
       el[i].style.fontSize = fs + '%'
     }
