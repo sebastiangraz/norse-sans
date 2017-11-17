@@ -2,7 +2,7 @@ function setScaledFont(){
     var el = document.getElementsByClassName("fill");
     for(var i = 0; i < el.length; i++){
       var s  = el[i].offsetWidth,
-          f  = 0.3,
+          f  = 0.24,
           fs = s * f;
       el[i].style.fontSize = fs + '%'
     }
@@ -36,7 +36,61 @@ window.addEventListener('scroll', function(e) {
   parallax()
 });
 
+function getTextWidth(text, font) {
+    // re-use canvas object for better performance
+    var canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    var context = canvas.getContext("2d");
+    context.font = font;
+    var metrics = context.measureText(text);
+    return metrics.width;
+}
 
+
+Array.prototype.sum = function(selector) {
+    if (typeof selector !== 'function') {
+        selector = function(item) {
+            return item;
+        }
+    }
+    var sum = 0;
+    for (var i = 0; i < this.length; i++) {
+        sum += parseFloat(selector(this[i]));
+    }
+    return sum;
+};
+
+var expandElem = document.querySelector('#hero')
+var child = expandElem.children;
+var totalWidth = 0;
+
+for(var i = 0, l = child.length; i < l; i++) {
+  var text = child[i].innerHTML.repeat(1);
+  child[i].insertAdjacentHTML('beforeend', text)
+  // console.log(child[i].childNodes)
+
+  NodeList.prototype.forEach = Array.prototype.forEach
+  var children = child[i].childNodes;
+  children.forEach(function(item){
+      return item.offsetWidth;
+  });
+
+  console.log(children[1])
+}
+// for (var i = 0; i < child.length; i++) {
+//
+// }
+
+
+// var arr = document.querySelector('#hero').childNodes
+// console.log(arr)
+
+// var new_array = arr.map(function callback(currentValue, index, array) {
+//   var rect = currentValue.getBoundingClientRect().width;
+//   console.log(rect)
+// })
+
+// var maxWidth= Math.max.apply(Math, new_array);
+// console.log(maxWidth)
 
 // var list = document.querySelector(".weight").children;
 // var charset = document.querySelector('.charset');

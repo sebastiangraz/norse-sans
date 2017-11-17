@@ -93,7 +93,6 @@
 }
 
 .row textarea { font-family: norse; resize: vertical; }
-
 body {
   font-family: norse;
   background: #111;
@@ -101,7 +100,7 @@ body {
   font-weight: 500;
   color: #fff;
   line-height: 1.6;
-  font-feature-settings: "frac", "onum", "dlig", "zero";
+
   -webkit-font-smoothing: antialiased;
 }
 h1,h2,h3,h4,h5,h6 {
