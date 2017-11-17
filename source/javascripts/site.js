@@ -1,12 +1,12 @@
-function setScaledFont(){
-    var el = document.getElementsByClassName("fill");
-    for(var i = 0; i < el.length; i++){
-      var s  = el[i].offsetWidth,
-          f  = 0.24,
-          fs = s * f;
-      el[i].style.fontSize = fs + '%'
-    }
-} setScaledFont()
+// function setScaledFont(){
+//     var el = document.getElementsByClassName("fill");
+//     for(var i = 0; i < el.length; i++){
+//       var s  = el[i].offsetWidth,
+//           f  = 0.24,
+//           fs = s * f;
+//       el[i].style.fontSize = fs + '%'
+//     }
+// } setScaledFont()
 
 function hero(scroll_pos) {
   var el = document.getElementsByClassName("black-shiny");
@@ -66,16 +66,36 @@ var totalWidth = 0;
 for(var i = 0, l = child.length; i < l; i++) {
   var text = child[i].innerHTML.repeat(1);
   child[i].insertAdjacentHTML('beforeend', text)
-  // console.log(child[i].childNodes)
-
-  NodeList.prototype.forEach = Array.prototype.forEach
-  var children = child[i].childNodes;
-  children.forEach(function(item){
-      return item.offsetWidth;
-  });
-
-  console.log(children[1])
 }
+
+let totalWidths = Array.from(
+  document.querySelectorAll('.nowrap'),
+  nowrap => Array.from(
+    nowrap.children,
+    child => child.offsetWidth
+  ).reduce((total, width) => total + width)
+)
+
+
+for (var i = 0; i < totalWidths.length; i++) {
+  var fits = Math.floor( window.innerWidth / totalWidths[i] )
+  if (fits > 0) {
+    var text = child[i].innerHTML.repeat(fits);
+    child[i].insertAdjacentHTML('beforeend', text)
+  }
+}
+//
+// $('#hero').each(function(){
+//   var child = $(this).children();
+//   var t=0;
+//     $(this).width(function(i,w){
+//       t+=w;
+//     });
+//   console.log(t);
+//   // $(this).each(function() {
+//   //   console.log(width += $(this).width())
+//   // });
+// });
 // for (var i = 0; i < child.length; i++) {
 //
 // }
