@@ -27,6 +27,9 @@
 @import "_layout/tooltip";
 @import "_layout/slider";
 
+
+$bezier: cubic-bezier(.12,.58,.16,.99);
+
 .transparent {
   color:transparent;
 }
@@ -65,6 +68,16 @@
 }
 .m-left-auto {
   margin-left: auto;
+}
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.8s, transform 1s $bezier;
+
+  &_visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 .black-shiny {
   background: -webkit-linear-gradient(0deg, #000 30%, #444 60%);
