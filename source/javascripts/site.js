@@ -136,25 +136,37 @@ Array.prototype.sum = function(selector) {
 
 var range = document.querySelector('#myRange');
 var weightParent = document.querySelector('.intro-questions');
-
+var weightIndicator = document.querySelector('.weight-indicator')
 
 range.oninput = function() {
-    weightParent.className = "intro-questions";
-    switch (parseInt(this.value)) {
-      case 1:
+
+  console.log(Math.round(this.value/100));
+  var percentage = this.value / 500 * 100;
+
+  weightParent.className = "intro-questions";
+  Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
+
+    switch (parseInt(this.value/100)) {
+      case 0:
+        weightIndicator.innerHTML='Thin'
         weightParent.classList.add('fw2');
         break;
-      case 2:
+      case 1 :
+        weightIndicator.innerHTML='Light'
         weightParent.classList.add('fw3');
         break;
-      case 4:
+      case 2:
+        weightIndicator.innerHTML='Regular'
+        weightParent.classList.add('fw4');
+        break;
+      case 3:
+        weightIndicator.innerHTML='Demibold'
         weightParent.classList.add('fw5');
         break;
-      case 5:
+      default:
+        weightIndicator.innerHTML='Bold'
         weightParent.classList.add('fw6');
         break;
-      default:
-        weightParent.classList.add('fw4');
     }
 }
 
