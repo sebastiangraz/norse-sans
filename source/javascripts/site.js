@@ -138,37 +138,78 @@ var range = document.querySelector('#myRange');
 var weightParent = document.querySelector('.intro-questions');
 var weightIndicator = document.querySelector('.weight-indicator')
 
-range.oninput = function() {
+var rangeSlider = document.getElementById('slider');
 
-  console.log(Math.round(this.value/100));
-  var percentage = this.value / 500 * 100;
-
-  weightParent.className = "intro-questions";
+noUiSlider.create(rangeSlider, {
+	start: [ 0 ],
+	range: {
+		'min': [  0 ],
+		'max': [ 500 ]
+	},
+  pips: {
+		mode: 'positions',
+		values: [0,20,40,60,80,100],
+		density: 2,
+		stepped: true
+	}
+});
+rangeSlider.noUiSlider.on('update', function( values, handle ) {
+  var percentage = values[handle] / this.options.range.max[0] * 100;
   Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
-
-    switch (parseInt(this.value/100)) {
-      case 0:
-        weightIndicator.innerHTML='Thin'
-        weightParent.classList.add('fw2');
-        break;
-      case 1 :
-        weightIndicator.innerHTML='Light'
-        weightParent.classList.add('fw3');
-        break;
-      case 2:
-        weightIndicator.innerHTML='Regular'
-        weightParent.classList.add('fw4');
-        break;
-      case 3:
-        weightIndicator.innerHTML='Demibold'
-        weightParent.classList.add('fw5');
-        break;
-      default:
-        weightIndicator.innerHTML='Bold'
-        weightParent.classList.add('fw6');
-        break;
-    }
-}
+  weightParent.className = "intro-questions";
+  switch (parseInt(values[handle]/100)) {
+       case 0:
+         weightIndicator.innerHTML='Thin'
+         weightParent.classList.add('fw2');
+         break;
+       case 1 :
+         weightIndicator.innerHTML='Light'
+         weightParent.classList.add('fw3');
+         break;
+       case 2:
+         weightIndicator.innerHTML='Regular'
+         weightParent.classList.add('fw4');
+         break;
+       case 3:
+         weightIndicator.innerHTML='Demibold'
+         weightParent.classList.add('fw5');
+         break;
+       default:
+         weightIndicator.innerHTML='Bold'
+         weightParent.classList.add('fw6');
+         break;
+     }
+});
+//
+// range.oninput = function() {
+//   console.log(Math.round(this.value / 500 * 100));
+//   var percentage = this.value / 500 * 100;
+//   weightParent.className = "intro-questions";
+//   Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
+//
+//     switch (parseInt(this.value/100)) {
+//       case 0:
+//         weightIndicator.innerHTML='Thin'
+//         weightParent.classList.add('fw2');
+//         break;
+//       case 1 :
+//         weightIndicator.innerHTML='Light'
+//         weightParent.classList.add('fw3');
+//         break;
+//       case 2:
+//         weightIndicator.innerHTML='Regular'
+//         weightParent.classList.add('fw4');
+//         break;
+//       case 3:
+//         weightIndicator.innerHTML='Demibold'
+//         weightParent.classList.add('fw5');
+//         break;
+//       default:
+//         weightIndicator.innerHTML='Bold'
+//         weightParent.classList.add('fw6');
+//         break;
+//     }
+// }
 
 var textCopy = document.querySelectorAll('.intro-question-text')
 for (var i = 0; i < textCopy.length; i++) {

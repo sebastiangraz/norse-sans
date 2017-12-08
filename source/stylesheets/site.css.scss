@@ -101,6 +101,9 @@ $bezier: cubic-bezier(.12,.58,.16,.99);
   }
 }
 
+.pointer-events-none {
+  pointer-events: none;
+}
 #fill {
   pointer-events: none;
   will-change: filter, transform;
@@ -154,6 +157,7 @@ body {
 
   -webkit-font-smoothing: antialiased;
 }
+
 h1,h2,h3,h4,h5,h6 {
   font-weight: 500;
 }
