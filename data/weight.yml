@@ -1,0 +1,11 @@
+weights:
+  - weight: Bold
+    class: fw9
+  - weight: DemiBold
+    class: fw5
+  - weight: Regular
+    class: fw4
+  - weight: Light
+    class: fw3
+  - weight: Thin
+    class: fw1

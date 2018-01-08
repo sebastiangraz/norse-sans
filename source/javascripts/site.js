@@ -7,57 +7,43 @@ function setScaledFont(){
       el[i].style.fontSize = fs + '%'
     }
 }
+function wrapInnerChildren() {
+  var contentBlocks = document.querySelectorAll('.content')[0].children
+  for (var i = 0; i < contentBlocks.length; i++) {
+    wrapInner(contentBlocks[i], 'div', ['cf', 'min-vh-100-ns', 'w-100', 'flex', 'items-center', 'justify-center']);
+    wrapInner(contentBlocks[i].children[0], 'div', ['w-100']);
+  }
+}
 
+var wrapInner = (parent, wrapper, classes) => {
 
+  if (typeof wrapper === "string") {
+    wrapper = document.createElement(wrapper);
+    classes.map(item => wrapper.classList.add(item));
+  }
 
-// function recalcTextRepeat() {
-//   var expandElem = document.querySelectorAll('.intro-questions > .intro-question > .intro-question-text')
-//   var totalWidth = 0;
-//
-//   for(var i = 0, l = expandElem.length; i < l; i++) {
-//     // console.log(expandElem[i].getBoundingClientRect().width);
-//     // var text = child[i].innerHTML.repeat(1);
-//     // child[i].insertAdjacentHTML('beforeend', text)
-//     var fits = Math.floor( window.innerWidth / expandElem[i].offsetWidth )
-//     // console.log(expandElem[i]);
-//     console.log(  expandElem[i].offsetWidth % window.innerWidth + 'hey');
-//
-//     var text = expandElem[i].innerHTML.repeat(fits);
-//     expandElem[i].insertAdjacentHTML('beforeend', text)
-//
-//   }
+  var div = parent.appendChild(wrapper);
+  while(parent.firstChild !== wrapper)
+      wrapper.appendChild(parent.firstChild);
+}
+
+// var allGlyphsEl = document.querySelector('.all-glyphs');
+// var allGlyphs = "AÁĂẰǍÂÄÀĀĄÅÃÆBCĆČÇĊDÐĎĐEÉĚÊËĖÈĒĘFGĞĢĠHĦIÍǏÎÏİÌĪĮJKĶLĹĽĻĿŁMḾNŃŇŅŊÑOÓǑÔÖÒŐŌØÕŒPÞQRŔŘŖSŚŠŞȘTŦŤŢȚUÚǓÛÜǗǙǛǕÙŰŪŲŮVWẂŴẄẀXYÝŶŸỲZŹŽŻaáăǎâäàāąåãæbcćčçċdðďđeéěêëėèēęẽfgğģġhħiıíǐîï/idotaccentìīįjȷkķlĺľļŀłmḿnńňņŋñoóǒôöòőōøõœpþqrŕřŗsśšşșßtŧťţțuúǔûüǘǚǜǖùűūųůvwẃŵẅẁxyýŷÿỳzźžżΔΠΩπ0123456789₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴⁵⁶⁷⁸⁹⁄½¼¾⅛⅜⅝⅞*·•:,…!¡#.?¿;/_{}[]()—–-«»‹›„“”‘’‚¢¤$€ƒ£¥+−×÷=≠><≥≤±≈~¬∅∞∫∏∑√∂µ%‰↑↗→↘↓↙←↖↔↕◊@&¶§©®™°|¦†‡^̵̶̷̸̧̨̦̇̀́̋̂̌̆̊̃̄̒´˘ˇ¸ˆ¨˙`˝¯˛˚˜/"
+// for (var i = 0; i < allGlyphs.length; i++) {
+//   var glyphs = Array.from(allGlyphs[i]).toString();
+//   var list = document.createElement("li");
+//   list.classList.add('w3', 'h3', 'fl');
+//   list.innerHTML = (allGlyphs[i]);
+//   wrapInner(list, 'span', ['tc', 'f3', 'dib', 'aspect-ratio', 'aspect-ratio--1x1'])
+//   wrapInner(list.children[0], 'li', ['aspect-ratio--object'])
+//   allGlyphsEl.appendChild(list);
 // }
 
-
-
-function hero(scroll_pos) {
-  var el = document.getElementsByClassName("black-shiny");
-  for (var i = 0; i < el.length; i++) {
-    Object.assign(el[i].style,{background:'-webkit-linear-gradient(' + scroll_pos * .2 + 'deg, #000 30%, #444 60%)', webkitBackgroundClip: 'text'});
-  }
-}
-
-function parallax() {
-  var ticking = false,
-      pos = window.scrollY;
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      hero(pos);
-      ticking = false;
-    });
-    ticking = true;
-  }
-}
 
 
 window.onresize = function () {
   setScaledFont()
 }
-
-window.addEventListener('scroll', function(e) {
-  parallax()
-});
-
 
 
 Array.prototype.sum = function(selector) {
@@ -74,66 +60,6 @@ Array.prototype.sum = function(selector) {
 };
 
 
-// let totalWidths = Array.from(
-//   document.querySelectorAll('.intro-question'),
-//   nowrap => Array.from(
-//     nowrap.children,
-//     child => child.offsetWidth
-//   ).reduce((total, width) => total + width)
-// )
-// console.log(totalWidths)
-
-
-
-// for (var i = 0; i < totalWidths.length; i++) {
-//   console.log(totalWidths[i]);
-//   var fits = Math.floor( window.innerWidth / totalWidths[i] )
-//   console.log(expandElem[i]);
-//   if (fits > 0) {
-//     var text = expandElem[i].innerHTML.repeat(fits);
-//     expandElem[i].insertAdjacentHTML('beforeend', text)
-//   }
-// }
-//
-// $('#hero').each(function(){
-//   var child = $(this).children();
-//   var t=0;
-//     $(this).width(function(i,w){
-//       t+=w;
-//     });
-//   console.log(t);
-//   // $(this).each(function() {
-//   //   console.log(width += $(this).width())
-//   // });
-// });
-// for (var i = 0; i < child.length; i++) {
-//
-// }
-
-
-// var arr = document.querySelector('#hero').childNodes
-// console.log(arr)
-
-// var new_array = arr.map(function callback(currentValue, index, array) {
-//   var rect = currentValue.getBoundingClientRect().width;
-//   console.log(rect)
-// })
-
-// var maxWidth= Math.max.apply(Math, new_array);
-// console.log(maxWidth)
-
-// var list = document.querySelector(".weight").children;
-// var charset = document.querySelector('.charset');
-//
-// for (var i = 0; i < list.length; i++) {
-//   list[i].addEventListener("click", function( event ) {
-//     var weightItem = event.target.dataset.weight;
-//
-//     charset.className = "charset pa1"
-//     charset.classList.toggle(weightItem);
-//   }, false);
-// }
-
 var range = document.querySelector('#myRange');
 var weightParent = document.querySelector('.intro-questions');
 var weightIndicator = document.querySelector('.weight-indicator')
@@ -145,13 +71,13 @@ noUiSlider.create(rangeSlider, {
 	range: {
 		'min': [  0 ],
 		'max': [ 500 ]
-	},
-  pips: {
-		mode: 'positions',
-		values: [0,20,40,60,80,100],
-		density: 2,
-		stepped: true
 	}
+  // ,pips: {
+	// 	mode: 'positions',
+	// 	values: [0,20,40,60,80,100],
+	// 	density: 2,
+	// 	stepped: true
+	// }
 });
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
   var percentage = values[handle] / this.options.range.max[0] * 100;
@@ -180,36 +106,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
          break;
      }
 });
-//
-// range.oninput = function() {
-//   console.log(Math.round(this.value / 500 * 100));
-//   var percentage = this.value / 500 * 100;
-//   weightParent.className = "intro-questions";
-//   Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
-//
-//     switch (parseInt(this.value/100)) {
-//       case 0:
-//         weightIndicator.innerHTML='Thin'
-//         weightParent.classList.add('fw2');
-//         break;
-//       case 1 :
-//         weightIndicator.innerHTML='Light'
-//         weightParent.classList.add('fw3');
-//         break;
-//       case 2:
-//         weightIndicator.innerHTML='Regular'
-//         weightParent.classList.add('fw4');
-//         break;
-//       case 3:
-//         weightIndicator.innerHTML='Demibold'
-//         weightParent.classList.add('fw5');
-//         break;
-//       default:
-//         weightIndicator.innerHTML='Bold'
-//         weightParent.classList.add('fw6');
-//         break;
-//     }
-// }
+
 
 var textCopy = document.querySelectorAll('.intro-question-text')
 for (var i = 0; i < textCopy.length; i++) {
@@ -283,17 +180,6 @@ function resizeHandler() { // NEEDS TO NOT BREAK ON RESIZE
 }
 
 
-
-
-
-function randomDia() {
-  var text = "";
-  var alphabetdia = "ÓǑÔÖÒŐŌÕ";
-  for( var i = 0; i < 1; i++ )
-      text += alphabetdia.charAt(Math.floor(Math.random() * alphabetdia.length));
-  return text;
-}
-
 function randomString() {
     var text = "";
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789∑‰@&†≈£€→↖↔∫";
@@ -318,25 +204,6 @@ document.querySelectorAll('.randomdia').forEach( function(e){
   },790);
 });
 
-// console.log(document.querySelector('#typetester').value)
-// var playground = document.querySelectorAll('.typetester-playground')
-// var typetester = document.querySelector('.typetester');
-//
-// typetester.addEventListener("input", function(e){
-//   var value = this.value
-//   playground.forEach(function(e){
-//     e.innerHTML = value
-//   });
-// });
-
-
-// var elem = document.querySelector('.charset');
-// var iso = new Isotope( elem, {
-//   // options
-//   itemSelector: '.glyph',
-//   percentPosition: true,
-//   layoutMode: 'masonry'
-// });
 
 function getRandomInt(min, max) {
 
@@ -352,10 +219,10 @@ function glyphHover () {
   var expandElem = this.querySelector('.expand-list')
   var children = expandElem.children;
   expandElem.classList.add('active')
-  for(var i = 0, l = children.length; i < l; i++) {
-    children[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-    children[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-  }
+  // for(var i = 0, l = children.length; i < l; i++) {
+  //   children[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+  //   children[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+  // }
 }
 function glyphUnHover () {
   var expandElem = this.querySelector('.expand-list')
@@ -406,8 +273,6 @@ function reveal() {
     var $ts = $('.reveal_pending');
     $($ts.get(0)).removeClass('reveal_pending').addClass('reveal_visible');
   }
-
-
   if ($('.reveal_pending').length >= 1) rafId = requestAnimationFrame(reveal);
 }
 

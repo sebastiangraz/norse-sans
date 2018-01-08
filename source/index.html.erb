@@ -3,18 +3,32 @@ title: Norse Sans
 ---
 
 
-<article class="w-100 contain bg-top" >
-    <div class="mv7">
+<article class="w-100 contain bg-top">
+    <div class="mv6">
       <div class="ma0 f3 f2-m f1-l fill lh-title w-100 overflow-hidden">
         <div class="intro-questions fw4">
+          <div class="intro-question reveal">
+            <div class="intro-question-text">
+              Norse Sans Norse Sans Norse Sans
+            </div>
+          </div>
 					<div class="intro-question reveal">
 						<div class="intro-question-text">
 							Impressive language support — Ch<span class="froly">â</span>teau ∞ d’Eau. Ma<span class="froly">łż</span>e<span class="froly">ń</span>sk<span class="froly">ą</span>* “t<span class="froly">ü</span>k<span class="froly">ö</span>rf<span class="froly">ú</span>r<span class="froly">ó</span>g<span class="froly">é</span>p” <span class="froly">þ</span>j<span class="froly">ó</span>fum
             </div>
 					</div>
           <div class="intro-question reveal">
+						<div class="intro-question-text">
+              Small caps → <span class="smcp froly">S</span>S
+              <span class="smcp froly">Q</span>Q
+              <span class="smcp froly">G</span>G
+              <span class="smcp froly">H</span>H
+              <span class="smcp froly">J</span>J
+            </div>
+					</div>
+          <div class="intro-question reveal">
             <div class="intro-question-text">
-              Finger-licking ligatures <span class="froly dlig">rf rt fi</span>
+              Lovely ligatures <span class="froly dlig">rf rt fi</span>
             </div>
           </div>
           <div class="intro-question reveal">
@@ -43,6 +57,17 @@ title: Norse Sans
                 <span class="froly tnum">1246</span>
                 1246 →
               <span class="froly onum">1246</span>
+            </div>
+          </div>
+
+          <div class="intro-question reveal">
+            <div class="intro-question-text">
+              Stylistic Alternatives [
+              <span class="froly ss02">a</span>/a,
+              <span class="froly ss01">l</span>/l,
+              <span class="froly ss03">B</span>/B,
+              <span class="froly ss04">A</span>/A,
+              ]
             </div>
           </div>
         </div>
@@ -81,12 +106,18 @@ title: Norse Sans
         <li class="mt3">Supports — Latin Extended A</li>
         <li class="mt3">Released — 3rd December 2017</li>
       </ul>
-      <a href="#" onclick="return false;" class="pv3 ph4 mt2 f7 dib hover-bg-froly tracked ttu bg-white black">Available soon</a>
+      <a href="#" onclick="return false;" class="pv3 ph4 mt2 f7 dib tracked ttu bg-black white hover-white hover-bg-black-70">Available soon</a>
     </div>
     <div class="w-100 w-60-ns pa0 pa3-ns f5 fl m-left-auto lh-copy reveal measure ">
       <p class="f4 ma0">A typeface for the modern world — An exciting combo between grotesque principles and legibility.</p>
       <p class="silver">
         Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
+      </p>
+      <p class="silver">
+        I den rett gamle tida budde det tre troll i Råskogen. "Eg tykte eg høyrde ei ku raute", sa det eine trollet
+      </p>
+      <p class="silver">
+        Klockan blir nio! Han står i tamburen; dörrarne till skolsalen äro stängda; i skymningen ser han så många små barnplagg hänga runtomkring väggarne; hattar, boas, kråkor, baschliks, vantar, muffar ligga på borden och i fönsternischerna och på golven stå hela regementen med knäppkängor och galoscher
       </p>
     </div>
   </div>
@@ -94,60 +125,112 @@ title: Norse Sans
 
   <div class="mv3 mv5-ns cf">
     <p>5 Weights</p>
-    <div class="cf">
-      <div class="fl pa1 w-50 w-third-m w-20-ns reveal ba">
-        <div class="aspect-ratio--1x1 aspect-ratio">
-          <div class="aspect-ratio--object flex justify-center items-center">
-            <div class="absolute f7 pale bottom-1 tc w-100">Bold</div>
-              <div class="relative">
-                <span class="f1 f1-m f-5-ns mb3 dib fw6 random">Rr</span>
-              </div>
-          </div>
-        </div>
-      </div>
-      <div class="fl pa1 w-50 w-third-m w-20-ns reveal ba">
-        <div class="aspect-ratio--1x1 aspect-ratio">
-          <div class="aspect-ratio--object flex justify-center items-center">
-           <div class="absolute f7 pale bottom-1 tc w-100">Demi Bold</div>
-            <div class="relative">
-             <span class="f1 f1-m f-5-ns mb3 dib fw5 random">Gg</span>
+    <div class="cf flex-ns">
+      <% data.weight.weights.each do |this| %>
+        <div class="fl pa1 w-100 w-20-ns reveal charset">
+          <div class="aspect-ratio--1x1 aspect-ratio">
+            <div class="aspect-ratio--object flex justify-center items-center">
+              <div class="absolute f7 pale bottom-1 tc w-100"><%= this['weight'] %></div>
+                <div class="relative">
+                  <span class="f1 f1-m f-5-ns mb3 dib <%= this['class'] %> random">Rr</span>
+                </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="fl pa1 w-50 w-third-m w-20-ns reveal ba">
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt6 flex bt mt3">
+    <div class="w-30">
+      <p>Characters</p>
+    </div>
+    <div class="w-70">
+    <% data.charset.characters.each do |this, index| %>
+      <div class="glyph w-50 w-25-ns w-10-l fl charset bg-white b--black hover-bg-black hover-white relative">
         <div class="aspect-ratio--1x1 aspect-ratio">
-          <div class="aspect-ratio--object flex justify-center items-center">
-            <div class="absolute f7 pale bottom-1 tc w-100">Regular</div>
-            <div class="relative">
-              <span class="f1 f1-m f-5-ns mb3 dib fw4 random">Xx</span>
-            </div>
+          <div class="aspect-ratio--object flex justify-center items-center expand">
+
+            <ul class="list ma0 pa0 expand-list w-100 h-100 top-0 left-0 absolute">
+            <% if this.key?('dia') %>
+              <% this['dia'].each do | dia | %>
+                 <li class="f4 f3-ns fl pa0 bg-black white  w-100 h-100 flex justify-center items-center">
+                  <span><%= dia + dia.mb_chars.downcase %></span>
+                 </li>
+              <% end %>
+            <% end %>
+           </ul>
+
+           <div class="f4 f3-ns list ma0 pa0 relative">
+             <span><%= this['char'] + this['char'].downcase %></span>
+           </div>
           </div>
         </div>
       </div>
-      <div class="fl pa1 w-50 w-third-m w-20-ns reveal ba">
+    <% end %>
+    </div>
+  </div>
+
+  <div class="flex bt mt3">
+    <div class="w-30">
+      <p>Numerals</p>
+    </div>
+    <div class="w-70">
+    <% data.charset.numerals.each do |this| %>
+      <div class="glyph w-50 w-25-ns w-10-l fl charset">
         <div class="aspect-ratio--1x1 aspect-ratio">
-          <div class="aspect-ratio--object flex justify-center items-center">
-            <div class="absolute f7 pale bottom-1 tc w-100">Light</div>
-            <div class="relative">
-              <span class="f1 f1-m f-5-ns mb3 dib fw3 random">Qq</span>
-            </div>
+          <div class="aspect-ratio--object flex justify-center items-center expand">
+           <div class="f4 f3-ns list ma0 pa0 relative">
+             <span><%= this %></span>
+           </div>
           </div>
         </div>
       </div>
-      <div class="fl pa1 w-50 w-third-m w-20-ns reveal ba">
+    <% end %>
+    </div>
+  </div>
+
+  <div class="flex bt mt3">
+    <div class="w-30">
+      <p>Punctuation</p>
+    </div>
+    <div class="w-70">
+    <% data.charset.punctuation.each do |this| %>
+      <div class="glyph w-50 w-25-ns w-10-l fl charset">
         <div class="aspect-ratio--1x1 aspect-ratio">
-          <div class="aspect-ratio--object flex justify-center items-center">
-            <div class="absolute f7 pale bottom-1 tc w-100">Thin</div>
-            <div class="relative">
-              <span class="f1 f1-m f-5-ns mb3 dib fw2 random">Qq</span>
-            </div>
+          <div class="aspect-ratio--object flex justify-center items-center expand">
+           <div class="f4 f3-ns list ma0 pa0 relative">
+             <span><%= this %></span>
+           </div>
           </div>
         </div>
       </div>
+    <% end %>
     </div>
   </div>
 
 
+  <div class="flex bt mt3">
+    <div class="w-30">
+      <p>Symbols</p>
+    </div>
+    <div class="w-70">
+    <% data.charset.symbols.each do |this| %>
+      <div class="glyph w-50 w-25-ns w-10-l fl charset">
+        <div class="aspect-ratio--1x1 aspect-ratio">
+          <div class="aspect-ratio--object flex justify-center items-center expand">
+           <div class="f4 f3-ns list ma0 pa0 relative">
+             <span><%= this %></span>
+           </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <!-- <ul class="all-glyphs list ma0 pa0">
+
+  </ul> -->
 
 </div>
