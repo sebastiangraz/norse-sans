@@ -219,6 +219,12 @@ function glyphHover () {
   var expandElem = this.querySelector('.expand-list')
   var children = expandElem.children;
   expandElem.classList.add('active')
+  var scrollHeight = expandElem.scrollHeight;
+  $( expandElem ).animate({
+    top: -scrollHeight + this.getBoundingClientRect().height,
+  }, 2000, function() {
+    // Animation complete.
+  });
   // for(var i = 0, l = children.length; i < l; i++) {
   //   children[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
   //   children[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
@@ -227,6 +233,11 @@ function glyphHover () {
 function glyphUnHover () {
   var expandElem = this.querySelector('.expand-list')
   expandElem.classList.remove('active')
+  $( expandElem ).animate({
+    top: 0
+  }, 1000, function() {
+    // Animation complete.
+  });
 }
 
 var cycle = document.querySelectorAll('.expand');
