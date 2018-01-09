@@ -220,22 +220,19 @@ function glyphHover () {
   var children = expandElem.children;
   expandElem.classList.add('active')
   var scrollHeight = expandElem.scrollHeight;
+
   $( expandElem ).animate({
     top: -scrollHeight + this.getBoundingClientRect().height,
-  }, 2000, function() {
-    // Animation complete.
+  }, 400 * children.length, 'linear', function() {
   });
-  // for(var i = 0, l = children.length; i < l; i++) {
-  //   children[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-  //   children[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
-  // }
+
 }
 function glyphUnHover () {
   var expandElem = this.querySelector('.expand-list')
   expandElem.classList.remove('active')
   $( expandElem ).animate({
     top: 0
-  }, 1000, function() {
+  }, 1, 'linear', function() {
     // Animation complete.
   });
 }
