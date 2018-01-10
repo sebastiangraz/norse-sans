@@ -40,9 +40,12 @@ characters:
     dia: ['Ẃ','Ŵ','Ẅ','Ẁ']
   - char: X
   - char: Y
-    dia: ['ý','ŷ','ÿ','ỳ']
+    dia: ['Ý','Ŷ','Ÿ','Ỳ']
   - char: Z
     dia: ['Ź','Ž','Ż']
+  - char: Æ
+  - char: Ŋ
+  - char: Œ
 
 
 numerals:

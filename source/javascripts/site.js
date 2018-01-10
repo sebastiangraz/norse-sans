@@ -2,11 +2,12 @@ function setScaledFont(){
     var el = document.getElementsByClassName("fill");
     for(var i = 0; i < el.length; i++){
       var s  = el[i].offsetWidth,
-          f  = 0.24, //0.24
+          f  = 0.2, //0.24
           fs = s * f;
       el[i].style.fontSize = fs + '%'
     }
 }
+setScaledFont()
 function wrapInnerChildren() {
   var contentBlocks = document.querySelectorAll('.content')[0].children
   for (var i = 0; i < contentBlocks.length; i++) {
@@ -61,16 +62,16 @@ Array.prototype.sum = function(selector) {
 
 
 var range = document.querySelector('#myRange');
-var weightParent = document.querySelector('.intro-questions');
+var weightParent = document.querySelector('.charlines');
 var weightIndicator = document.querySelector('.weight-indicator')
 
 var rangeSlider = document.getElementById('slider');
 
 noUiSlider.create(rangeSlider, {
-	start: [ 0 ],
+	start: [ 2.5 ],
 	range: {
 		'min': [  0 ],
-		'max': [ 500 ]
+		'max': [ 5 ]
 	}
   // ,pips: {
 	// 	mode: 'positions',
@@ -82,8 +83,8 @@ noUiSlider.create(rangeSlider, {
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
   var percentage = values[handle] / this.options.range.max[0] * 100;
   Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
-  weightParent.className = "intro-questions";
-  switch (parseInt(values[handle]/100)) {
+  weightParent.className = "charlines";
+  switch (parseInt(values[handle]/1)) {
        case 0:
          weightIndicator.innerHTML='Thin'
          weightParent.classList.add('fw2');
@@ -108,7 +109,7 @@ rangeSlider.noUiSlider.on('update', function( values, handle ) {
 });
 
 
-var textCopy = document.querySelectorAll('.intro-question-text')
+var textCopy = document.querySelectorAll('.charline-text')
 for (var i = 0; i < textCopy.length; i++) {
   var text = textCopy[i].innerHTML.repeat(5)
   textCopy[i].insertAdjacentHTML('beforeend', text)
@@ -118,7 +119,7 @@ var WIN_H,
     WIN_W,
     qFrame = [];
 
-var questions = document.querySelectorAll('.intro-question');
+var questions = document.querySelectorAll('.charline');
 var scrollRequest;
 var qScrollPositions = [];
 var passiveRepeaters = [];
@@ -135,7 +136,7 @@ function initIntroScript() {
 function addImageHover(i) {
   qFrame[i] = 0;
   qScrollPositions[i] = Math.floor(Math.random() * -200);
-  questions[i].querySelector('.intro-question-text').style.transform = 'translate3d(' + qScrollPositions[i] + 'px,0,0)';
+  questions[i].querySelector('.charline-text').style.transform = 'translate3d(' + qScrollPositions[i] + 'px,0,0)';
   questions[i].addEventListener('mouseenter', function() {
     // console.log("mouseenter -> " + i);
 
@@ -163,7 +164,7 @@ function addImageHover(i) {
 function scrollQuestionText(i) {
   var shift = Math.floor(4 + WIN_W/800) * Math.min(0.2, qFrame[i] / 10);
   cancelAnimationFrame(scrollRequest);
-  var el_text = questions[i].querySelector('.intro-question-text');
+  var el_text = questions[i].querySelector('.charline-text');
   qScrollPositions[i] = qScrollPositions[i] - shift;
   if (qScrollPositions[i] < -el_text.clientWidth / 2 - 5) {
     qScrollPositions[i] = 0;
@@ -215,26 +216,65 @@ function isTouchDevice() {
   return 'ontouchstart' in document.documentElement;
 }
 
-function glyphHover () {
-  var expandElem = this.querySelector('.expand-list')
-  var children = expandElem.children;
-  expandElem.classList.add('active')
-  var scrollHeight = expandElem.scrollHeight;
+var forEach = function (array, callback, scope) {
+  for (var i = 0; i < array.length; i++) {
+    callback.call(scope, i, array[i]); // passes back stuff we need
+  }
+};
 
-  $( expandElem ).animate({
-    top: -scrollHeight + this.getBoundingClientRect().height,
-  }, 400 * children.length, 'linear', function() {
+
+(function () {
+
+
+  var myNodeList = document.querySelectorAll('.expand-list');
+  forEach(myNodeList, function (index, value) {
+    // console.log(index, value); // passes index + value back!
+    // console.log(value.children)
+    var count = 1;
+    setInterval(function() {
+        count = ($(value).children(':nth-child('+count+')').hide().next().length == 0) ? 1 : count+1;
+        $(value).children(':nth-child('+count+')').show();
+    }, 1000);
   });
 
+  // var expandElem = document.querySelectorAll('.expand-list')
+  // var count = 1;
+  // for (var i = 0; i < expandElem.length; i++) {
+  //   console.log(expandElem[i].children);
+  //   setInterval(function() {
+  //       count = ($(expandElem).children(':nth-child('+count+')').hide().next().length == 0) ? 1 : count+1;
+  //       $(expandElem).children(':nth-child('+count+')').show();
+  //   }, 1000);
+  // }
+  // expandElem.classList.add('active')
+  // var count = 1;
+  // for (var i = 0; i < expandElem.length; i++) {
+  //   setInterval(function(i) {
+  //       count = ($(expandElem[i]).children(':nth-child('+count+')').hide().next().length == 0) ? 1 : count+1;
+  //       $(expandElem[i]).children(':nth-child('+count+')').show();
+  //   }, 1000);
+  // }
+
+  // var list = [1, 2, 3, 4, 5];
+  // var count = 1;
+  // for (var i = 0; i < 1; i++) {
+  //     (function(i) {
+  //         setInterval(function() {
+  //           count = ($(expandElem).children(':nth-child('+count+')').hide().next().length == 0) ? 1 : count+1;
+  //           $(expandElem).children(':nth-child('+count+')').show();
+  //         }, 1000)
+  //     })(i);
+  // }
+})();
+
+
+function glyphHover () {
+
 }
+
 function glyphUnHover () {
   var expandElem = this.querySelector('.expand-list')
   expandElem.classList.remove('active')
-  $( expandElem ).animate({
-    top: 0
-  }, 1, 'linear', function() {
-    // Animation complete.
-  });
 }
 
 var cycle = document.querySelectorAll('.expand');

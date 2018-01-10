@@ -5,20 +5,20 @@ title: Norse Sans
 
 <article class="w-100 contain bg-top">
     <div class="mv6">
-      <div class="ma0 f3 f2-m f1-l fill lh-title w-100 overflow-hidden">
-        <div class="intro-questions fw4">
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+      <div class="ma0 f1 fill lh-title w-100 overflow-hidden">
+        <div class="charlines fw4">
+          <div class="charline reveal">
+            <div class="charline-text">
               Norse Sans Norse Sans Norse Sans
             </div>
           </div>
-					<div class="intro-question reveal">
-						<div class="intro-question-text">
+					<div class="charline reveal">
+						<div class="charline-text">
 							Impressive language support — Ch<span class="froly">â</span>teau ∞ d’Eau. Ma<span class="froly">łż</span>e<span class="froly">ń</span>sk<span class="froly">ą</span>* “t<span class="froly">ü</span>k<span class="froly">ö</span>rf<span class="froly">ú</span>r<span class="froly">ó</span>g<span class="froly">é</span>p” <span class="froly">þ</span>j<span class="froly">ó</span>fum
             </div>
 					</div>
-          <div class="intro-question reveal">
-						<div class="intro-question-text">
+          <div class="charline reveal">
+						<div class="charline-text">
               Small caps → <span class="smcp froly">S</span>S
               <span class="smcp froly">Q</span>Q
               <span class="smcp froly">G</span>G
@@ -26,32 +26,32 @@ title: Norse Sans
               <span class="smcp froly">J</span>J
             </div>
 					</div>
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Lovely ligatures <span class="froly dlig">rf rt fi</span>
             </div>
           </div>
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Fantastic fractions <span class="frac">180° m<span class="froly">²</span>  Roughly <span class="froly">1/2</span> on <span class="froly">19/07/2011</span></span>
             </div>
           </div>
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Slashed zeroes
                 <span class="froly">0</span><span class="onum froly">0</span>/<span class="zero froly">0<span class="onum zero froly">0</span>
                 </span>
             </div>
           </div>
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Arrows
                 <span class="froly">↔↕↑↗→↘↓↙←↖</span>
               + Arrow ligatures <span class="froly">-> = →</span>
             </div>
           </div>
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Oldstyle figures
               1246 →
                 <span class="froly tnum">1246</span>
@@ -60,8 +60,8 @@ title: Norse Sans
             </div>
           </div>
 
-          <div class="intro-question reveal">
-            <div class="intro-question-text">
+          <div class="charline reveal">
+            <div class="charline-text">
               Stylistic Alternatives [
               <span class="froly ss02">a</span>/a,
               <span class="froly ss01">l</span>/l,
@@ -82,12 +82,13 @@ title: Norse Sans
 
             </div>
             <!-- <input type="range" min="0" max="500" value="250" class="slider absolute top-0" id="myRange"> -->
-            <div class="flex justify-around absolute top-0 w-100 pointer-events-none">
-              <div class="w-25 b--froly br"></div>
-              <div class="w-25 b--froly br"></div>
-              <div class="w-25 b--froly br"></div>
-              <div class="w-25 b--froly br"></div>
-              <div class="w-25 b--froly br"></div>
+            <div class="pips flex justify-between absolute top-0 pointer-events-none z-5">
+                <div class="pips-1 br-pill"></div>
+                <div class="pips-2 br-pill"></div>
+                <div class="pips-3 br-pill"></div>
+                <div class="pips-4 br-pill"></div>
+                <div class="pips-5 br-pill"></div>
+                <div class="pips-6 br-pill"></div>
             </div>
           </div>
         </div>
@@ -113,27 +114,25 @@ title: Norse Sans
       <p class="silver">
         Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
       </p>
-      <p class="silver">
-        I den rett gamle tida budde det tre troll i Råskogen. "Eg tykte eg høyrde ei ku raute", sa det eine trollet
-      </p>
-      <p class="silver">
-        Klockan blir nio! Han står i tamburen; dörrarne till skolsalen äro stängda; i skymningen ser han så många små barnplagg hänga runtomkring väggarne; hattar, boas, kråkor, baschliks, vantar, muffar ligga på borden och i fönsternischerna och på golven stå hela regementen med knäppkängor och galoscher
-      </p>
     </div>
   </div>
 
 
   <div class="mv3 mv5-ns cf">
-    <p>5 Weights</p>
-    <div class="cf flex-ns">
+    <p class="cf">5 Weights</p>
+    <div class="flex flex-wrap justify-between">
       <% data.weight.weights.each do |this| %>
-        <div class="fl pa1 w-100 w-20-ns reveal charset">
-          <div class="aspect-ratio--1x1 aspect-ratio">
-            <div class="aspect-ratio--object flex justify-center items-center">
-              <div class="absolute f7 pale bottom-1 tc w-100"><%= this['weight'] %></div>
-                <div class="relative">
-                  <span class="f1 f1-m f-5-ns mb3 dib <%= this['class'] %> random">Rr</span>
+        <div class="w-50 w-30-l pa2 pa4-m pa0-l fl reveal mb5">
+          <div class="bt">
+            <p class="w-100 w-40-l fl"><%= this['weight'] %></p>
+            <div class="w-100 w-60-l ba fl nt-1">
+              <div class="aspect-ratio--1x1 aspect-ratio">
+                <div class="aspect-ratio--object flex justify-center items-center">
+                    <div class="relative">
+                      <span class="f1 <%= this['class'] %> random">Rr</span>
+                    </div>
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -143,22 +142,25 @@ title: Norse Sans
 
 
   <% data.charset.each do | id, this | %>
-    <div class="flex bt mt3">
-      <div class="w-30">
+    <div class="flex flex-l flex-wrap bt mt5">
+      <div class="w-100 w-30-l">
         <p><%= id.capitalize %></p>
+        <% if id === 'characters' %>
+          <p class="f6 silver pr4 measure">Supports — Portuguese, Italian, Moldovan, Spanish, French, Turkish, Romanian, Polish, Swedish and many more</p>
+        <% end %>
       </div>
-      <div class="w-70">
+      <div class="w-100 w-70-l">
       <% this.each do |this| %>
-        <div class="glyph w-50 w-25-ns w-10-l fl charset">
+        <div class="glyph w-third w-25-ns w-10-l fl charset">
           <div class="aspect-ratio--1x1 aspect-ratio">
             <div class="aspect-ratio--object expand overflow-hidden">
               <div class="f4 f3-ns list ma0 pa0 relative w-100 h-100 flex justify-center items-center hover-bg-black hover-white">
                 <% if this.is_a?(Hash) %>
                   <ul class="list ma0 pa0 expand-list w-100 h-100 relative">
-                  <li class="flex items-center justify-center w-100 h-100 "><%= this['char'] + this['char'].mb_chars.downcase %></li>
+                  <li class="flex items-center justify-center w-100 h-100"><%= this['char'] + this['char'].mb_chars.downcase %></li>
                   <% if this.key?('dia') %>
                     <% this['dia'].each do | dia | %>
-                       <li class="flex items-center justify-center w-100 h-100 "><%= dia.upcase + dia.mb_chars.downcase %></li>
+                       <li class="flex items-center dn justify-center w-100 h-100"><%= dia + dia.mb_chars.downcase %></li>
                     <% end %>
                   <% end %>
                   </ul>

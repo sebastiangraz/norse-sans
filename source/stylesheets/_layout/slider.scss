@@ -73,12 +73,13 @@
   }
 }
 .noUi-horizontal .noUi-handle {
-  width: 4rem;
-  height: 4rem;
-  background: #111;
+  width: 2rem;
+  height: 5rem;
+  background: #fff;
   border: 1px solid;
-  border-radius: 50%;
-  left: -2rem;
+  border-radius: 100px;
+  bottom: .75rem;
+  left: -1rem;
   &:focus{
     outline: none;
   }
@@ -128,13 +129,13 @@
   position: absolute;
   height: 1.5rem;
   width: 1px;
-  background: #fff;
-  left: calc(2rem + -3px);
-  top: 50%;
+  background: #000;
+  left: calc(1rem + -3px);
+  top: 65%;
   transform: translateY(-50%);
 }
 .noUi-handle:after {
-  left: calc(2rem + 1px);
+  left: calc(1rem + 1px);
 }
 .noUi-vertical .noUi-handle:before,
 .noUi-vertical .noUi-handle:after {
