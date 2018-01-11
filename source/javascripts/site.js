@@ -82,7 +82,7 @@ noUiSlider.create(rangeSlider, {
 });
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
   var percentage = values[handle] / this.options.range.max[0] * 100;
-  Object.assign(weightIndicator.style,{transform:'translateX(-' + percentage +'% )', left: percentage + '%' });
+  Object.assign(weightIndicator.style,{left: percentage + '%' });
   weightParent.className = "charlines";
   switch (parseInt(values[handle]/1)) {
        case 0:

@@ -65,8 +65,9 @@
   height: 64px;
   &:after {
     content: '';
-    height: 1px;
-    background: #000;
+    height: 0;
+    border-top: 1px dashed;
+    background: tranparent;
     position: relative;
     display: block;
     top: -50%;

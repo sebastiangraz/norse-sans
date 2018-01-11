@@ -9,7 +9,7 @@ title: Norse Sans
         <div class="charlines fw4">
           <div class="charline reveal">
             <div class="charline-text">
-              Norse Sans Norse Sans Norse Sans
+              <span class="froly">Norse</span> Sans <span class="froly">Norse</span> Sans <span class="froly">Norse</span> Sans
             </div>
           </div>
 					<div class="charline reveal">
@@ -74,7 +74,7 @@ title: Norse Sans
       </div>
       <div class="row mv5">
         <div id="slidecontainer">
-          <div class="weight-indicator dib relative tc mb4 tracked ttu">
+          <div class="x--50 weight-indicator dib relative tc mb4 tracked ttu">
             Drag me to change weight
           </div>
           <div class="relative h2">
@@ -98,22 +98,26 @@ title: Norse Sans
 
 <div class="row z-1 relative">
 
-
-
-  <div class="mt3 mt5-ns flex-ns flex-row cf">
-    <div class="w-100 w-40-ns mb4 pa0 pa3-ns reveal">
-      <ul class="list pa0  f7 tracked ttu">
-        <li class="mt3">Designed by — <a href="http://graz.io">Sebastian Graz</a></li>
-        <li class="mt3">Supports — Latin Extended A</li>
-        <li class="mt3">Released — 3rd December 2017</li>
-      </ul>
-      <a href="#" onclick="return false;" class="pv3 ph4 mt2 f7 dib tracked ttu bg-black white hover-white hover-bg-black-70">Available soon</a>
+  <div class="mv3 mv5-ns cf">
+    <div class="flex flex-wrap justify-between">
+        <div class="w-100 w-80-ns pa0-l fl reveal mb5 m-left-auto">
+          <p class="w-100 w-40-l fl pt3 pr4 measure bt-dashed nt-1">
+            <span class="f-6 fw9 lh-title">NOR-</span></p>
+          <div class="w-100 w-60-l ba fl nt-1 pa4 f6">
+            A typeface for the modern world. An exciting combo between grotesque principles and legibility.
+          </div>
+        </div>
     </div>
-    <div class="w-100 w-60-ns pa0 pa3-ns f5 fl m-left-auto lh-copy reveal measure ">
-      <p class="f4 ma0">A typeface for the modern world — An exciting combo between grotesque principles and legibility.</p>
-      <p class="black-50">
-        Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
-      </p>
+    <div class="flex flex-wrap justify-between">
+        <div class="w-100 w-80-ns pa0-l fl reveal mb5 m-right-auto">
+          <div class=" flex flex-wrap flex-row flex-row-reverse-l">
+            <p class="w-100 w-40-l fl pt3 pl0 pl4-l measure bt-dashed nt-1">
+            <span class="f-6 fw9 lh-title">SE.</span></p>
+            <div class="w-100 w-60-l ba fl nt-1 pa4 f6">
+              Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -123,7 +127,7 @@ title: Norse Sans
     <div class="flex flex-wrap justify-between">
       <% data.weight.weights.each do |this| %>
         <div class="w-40 w-30-l pa0-l fl reveal mb5">
-          <div class="bt">
+          <div class="bt-dashed">
             <p class="w-100 w-40-l fl"><%= this['weight'] %></p>
             <div class="w-100 w-60-l ba fl nt-1">
               <div class="aspect-ratio--1x1 aspect-ratio">
@@ -142,7 +146,7 @@ title: Norse Sans
 
 
   <% data.charset.each do | id, this | %>
-    <div class="flex flex-l flex-wrap bt mt5">
+    <div class="flex flex-l flex-wrap bt-dashed mt5">
       <div class="w-100 w-30-l">
         <p><%= id.capitalize %></p>
         <% if id === 'characters' %>
@@ -175,6 +179,10 @@ title: Norse Sans
       </div>
     </div>
   <% end %>
+
+  <div class="mv3 mv5-ns cf">
+    <p>Made by <a href="https://www.graz.io">graz.io</a></p>
+  </div>
 
 
 </div>
