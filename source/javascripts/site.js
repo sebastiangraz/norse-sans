@@ -72,7 +72,8 @@ noUiSlider.create(rangeSlider, {
 	range: {
 		'min': [  0 ],
 		'max': [ 5 ]
-	}
+	},
+  behaviour: 'hover-snap'
   // ,pips: {
 	// 	mode: 'positions',
 	// 	values: [0,20,40,60,80,100],
@@ -80,6 +81,35 @@ noUiSlider.create(rangeSlider, {
 	// 	stepped: true
 	// }
 });
+
+// rangeSlider.noUiSlider.on('hover', function( values ){
+//   var percentage = values / this.options.range.max[0] * 100;
+//   Object.assign(weightIndicator.style,{left: percentage + '%' });
+// 	console.log(percentage);
+//   weightParent.className = "charlines";
+//   switch (parseInt(values/1)) {
+//        case 0:
+//          weightIndicator.innerHTML='Thin'
+//          weightParent.classList.add('fw2');
+//          break;
+//        case 1 :
+//          weightIndicator.innerHTML='Light'
+//          weightParent.classList.add('fw3');
+//          break;
+//        case 2:
+//          weightIndicator.innerHTML='Regular'
+//          weightParent.classList.add('fw4');
+//          break;
+//        case 3:
+//          weightIndicator.innerHTML='Demibold'
+//          weightParent.classList.add('fw5');
+//          break;
+//        default:
+//          weightIndicator.innerHTML='Bold'
+//          weightParent.classList.add('fw6');
+//          break;
+//      }
+// });
 rangeSlider.noUiSlider.on('update', function( values, handle ) {
   var percentage = values[handle] / this.options.range.max[0] * 100;
   Object.assign(weightIndicator.style,{left: percentage + '%' });

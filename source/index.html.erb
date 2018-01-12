@@ -101,9 +101,9 @@ title: Norse Sans
   <div class="mv3 mv5-ns cf">
     <div class="flex flex-wrap justify-between">
         <div class="w-100 w-80-ns pa0-l fl reveal mb5 m-left-auto">
-          <p class="w-100 w-40-l fl pt3 pr4 measure bt-dashed nt-1">
+          <p class="w-100 w-40-l fl pt3 pr4 measure bt-dashed nt-1 z-1 relative">
             <span class="f-6 fw9 lh-title">NOR-</span></p>
-          <div class="w-100 w-60-l ba fl nt-1 pa4 f6">
+          <div class="w-100 w-60-l ba fl nt-1 pa4 f6 furniture">
             A typeface for the modern world. An exciting combo between grotesque principles and legibility.
           </div>
         </div>
@@ -113,7 +113,7 @@ title: Norse Sans
           <div class=" flex flex-wrap flex-row flex-row-reverse-l">
             <p class="w-100 w-40-l fl pt3 pl0 pl4-l measure bt-dashed nt-1">
             <span class="f-6 fw9 lh-title">SE.</span></p>
-            <div class="w-100 w-60-l ba fl nt-1 pa4 f6">
+            <div class="w-100 w-60-l ba fl nt-1 pa4 f6 furniture">
               Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
             </div>
           </div>
@@ -127,15 +127,15 @@ title: Norse Sans
     <div class="flex flex-wrap justify-between">
       <% data.weight.weights.each do |this| %>
         <div class="w-40 w-30-l pa0-l fl reveal mb5">
-          <div class="bt-dashed">
-            <p class="w-100 w-40-l fl"><%= this['weight'] %></p>
-            <div class="w-100 w-60-l ba fl nt-1">
-              <div class="aspect-ratio--1x1 aspect-ratio">
-                <div class="aspect-ratio--object flex justify-center items-center">
-                    <div class="relative">
-                      <span class="f1 <%= this['class'] %> random">Rr</span>
-                    </div>
-                </div>
+          <div class="bt-dashed relative z-1">
+            <p class="w-100 w-40-l fl z-1 relative"><%= this['weight'] %></p>
+          </div>
+          <div class="w-100 w-60-l ba fl nt-1 furniture">
+            <div class="aspect-ratio--1x1 aspect-ratio">
+              <div class="aspect-ratio--object flex justify-center items-center">
+                  <div class="relative">
+                    <span class="f1 <%= this['class'] %> random">Rr</span>
+                  </div>
               </div>
             </div>
           </div>
@@ -155,7 +155,7 @@ title: Norse Sans
       </div>
       <div class="w-100 w-70-l">
       <% this.each do |this| %>
-        <div class="glyph w-third w-25-ns w-10-l fl charset">
+        <div class="glyph w-third w-20-ns w-10-l fl charset">
           <div class="aspect-ratio--1x1 aspect-ratio">
             <div class="aspect-ratio--object expand overflow-hidden">
               <div class="f4 f3-ns list ma0 pa0 relative w-100 h-100 flex justify-center items-center hover-bg-black hover-white">
