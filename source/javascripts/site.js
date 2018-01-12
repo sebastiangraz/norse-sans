@@ -2,7 +2,7 @@ function setScaledFont(){
     var el = document.getElementsByClassName("fill");
     for(var i = 0; i < el.length; i++){
       var s  = el[i].offsetWidth,
-          f  = 0.2, //0.24
+          f  = 0.26, //0.24
           fs = s * f;
       el[i].style.fontSize = fs + '%'
     }
@@ -264,7 +264,7 @@ var forEach = function (array, callback, scope) {
     setInterval(function() {
         count = ($(value).children(':nth-child('+count+')').hide().next().length == 0) ? 1 : count+1;
         $(value).children(':nth-child('+count+')').show();
-    }, 1000);
+    }, 800);
   });
 
   // var expandElem = document.querySelectorAll('.expand-list')

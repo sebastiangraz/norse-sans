@@ -2,6 +2,15 @@
 title: Norse Sans
 ---
 
+<nav class="fixed w-100 top-0 left-0 bg-whisper z-5 bb">
+  <div class="row flex justify-between items-center pv2 pv3-ns f7 f5-ns">
+    <span class="dn db-ns">Norse Sans Typeface</span>
+    <menu class="ma0 pa0 flex justify-between justify-start-ns w-100 w-auto-ns">
+      <a href="#" class="dib pv2 ph3 mr1">Try</a>
+      <a href="#" class="dib pv2 ph3 ba br-pill hover-bg-black hover-white">Purchase</a>
+    </menu>
+  </div>
+</nav>
 
 <article class="w-100 contain bg-top">
     <div class="mv6">
@@ -47,7 +56,7 @@ title: Norse Sans
             <div class="charline-text">
               Arrows
                 <span class="froly">↔↕↑↗→↘↓↙←↖</span>
-              + Arrow ligatures <span class="froly">-> = →</span>
+              + Arrow ligatures <span class="froly">-​​​​> = →</span>
             </div>
           </div>
           <div class="charline reveal">
@@ -74,7 +83,7 @@ title: Norse Sans
       </div>
       <div class="row mv5">
         <div id="slidecontainer">
-          <div class="x--50 weight-indicator dib relative tc mb4 tracked ttu">
+          <div class="f7 fw9 x--50 weight-indicator dib relative tc mb4 tracked ttu">
             Drag me to change weight
           </div>
           <div class="relative h2">
@@ -82,7 +91,7 @@ title: Norse Sans
 
             </div>
             <!-- <input type="range" min="0" max="500" value="250" class="slider absolute top-0" id="myRange"> -->
-            <div class="pips flex justify-between absolute top-0 pointer-events-none z-5">
+            <div class="pips flex justify-between absolute top-0 pointer-events-none z-4">
                 <div class="pips-1 br-pill"></div>
                 <div class="pips-2 br-pill"></div>
                 <div class="pips-3 br-pill"></div>
@@ -102,8 +111,8 @@ title: Norse Sans
     <div class="flex flex-wrap justify-between">
         <div class="w-100 w-80-ns pa0-l fl reveal mb5 m-left-auto">
           <p class="w-100 w-40-l fl pt3 pr4 measure bt-dashed nt-1 z-1 relative">
-            <span class="f-6 fw9 lh-title">NOR-</span></p>
-          <div class="w-100 w-60-l ba fl nt-1 pa4 f6 furniture">
+            <span class="f-6 fw9 lh-title">NOR</span></p>
+          <div class="w-100 w-60-l ba fl nt-1 pa4 f5 furniture">
             A typeface for the modern world. An exciting combo between grotesque principles and legibility.
           </div>
         </div>
@@ -112,7 +121,7 @@ title: Norse Sans
         <div class="w-100 w-80-ns pa0-l fl reveal mb5 m-right-auto">
           <div class=" flex flex-wrap flex-row flex-row-reverse-l">
             <p class="w-100 w-40-l fl pt3 pl0 pl4-l measure bt-dashed nt-1">
-            <span class="f-6 fw9 lh-title">SE.</span></p>
+            <span class="f-6 fw9 lh-title">SE</span></p>
             <div class="w-100 w-60-l ba fl nt-1 pa4 f6 furniture">
               Norse really shines when small due to it's spacious layout of shapes rendering it ideal for body text. But sports enough pizzazz to be used in titles and print design.
             </div>
@@ -147,38 +156,35 @@ title: Norse Sans
 
   <% data.charset.each do | id, this | %>
     <div class="flex flex-l flex-wrap bt-dashed mt5">
-      <div class="w-100 w-30-l">
+      <div class="w-100 w-30-l reveal">
         <p><%= id.capitalize %></p>
         <% if id === 'characters' %>
           <p class="f6 black-50 pr4 measure">Supports — Portuguese, Italian, Moldovan, Spanish, French, Turkish, Romanian, Polish, Swedish and many more</p>
         <% end %>
       </div>
-      <div class="w-100 w-70-l">
+      <div class="w-100 w-70-l grid nt-1 reveal">
       <% this.each do |this| %>
-        <div class="glyph w-third w-20-ns w-10-l fl charset">
-          <div class="aspect-ratio--1x1 aspect-ratio">
-            <div class="aspect-ratio--object expand overflow-hidden">
-              <div class="f4 f3-ns list ma0 pa0 relative w-100 h-100 flex justify-center items-center hover-bg-black hover-white">
-                <% if this.is_a?(Hash) %>
-                  <ul class="list ma0 pa0 expand-list w-100 h-100 relative">
-                  <li class="flex items-center justify-center w-100 h-100"><%= this['char'] + this['char'].mb_chars.downcase %></li>
-                  <% if this.key?('dia') %>
-                    <% this['dia'].each do | dia | %>
-                       <li class="flex items-center dn justify-center w-100 h-100"><%= dia + dia.mb_chars.downcase %></li>
-                    <% end %>
-                  <% end %>
-                  </ul>
-                <% elsif %>
-                  <%= this %>
+        <div class="glyph grid__item overflow-hidden">
+          <div class="absolute top-0 left-0 f4 f3-ns list ma0 pa0 relative w-100 h-100 flex justify-center items-center hover-bg-black hover-white">
+            <% if this.is_a?(Hash) %>
+              <ul class="list ma0 pa0 expand-list w-100 h-100 relative">
+              <li class="flex items-center justify-center w-100 h-100"><%= this['char'] + this['char'].mb_chars.downcase %></li>
+              <% if this.key?('dia') %>
+                <% this['dia'].each do | dia | %>
+                   <li class="flex items-center dn justify-center w-100 h-100"><%= dia + dia.mb_chars.downcase %></li>
                 <% end %>
-              </div>
-            </div>
+              <% end %>
+              </ul>
+            <% elsif %>
+              <%= this %>
+            <% end %>
           </div>
         </div>
       <% end %>
       </div>
     </div>
   <% end %>
+
 
   <div class="mv3 mv5-ns cf">
     <p>Made by <a href="https://www.graz.io">graz.io</a></p>
